@@ -1,0 +1,49 @@
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title> Home </title>
+        <link th:href="@{/css/styles.css}" rel="stylesheet" />
+        <link th:href="@{/css/home.css}" rel="stylesheet" />
+    </head>
+    <body>
+        <!-- Thymeleaf navbar fragment is inserted here -->
+        <div th:replace="fragments/header :: header"></div>
+
+        <!-- Main content -->
+        <div class="section">
+            <div class="subsection product">
+                <h2> Ons Product </h2>
+                <img src="/img/device.png" alt="Een SmokeSensor apparaat" class="device">
+                <p>
+                    Ons product is een geadvanceerd systeem die infraroodstraling gebruikt om marijuana en vape deeltjes in de lucht te detecteren. Nu beschikbaar voor slechts ##,## €. 
+                    <br> <br>
+                </p>
+                <span class="link"> <a href="../ons-product/ons-product.html"> -> Meer lezen </a> </span>
+            </div>
+            <!-- <div class="subsection sidebar">
+                <h2> Download de app </h2>
+                <p> 
+                    Doe het gwn dat toch gekkie
+                </p>
+            </div> -->
+            <div class="subsection">
+                <h2> Over ons </h2>
+                <p> 
+                    Wij zijn de Gekke Challengers, een non-profit bestaande uit Wanisha Shamlal, Zoe Sookdew-Singh, Nikki Snoep, Madeline Sebastian, Stijn van Dijl en Sanjana Fatingan. 
+                    <br> <br>
+                    Wij zetten ons landelijk in om openbare en priveterreinen veiliger en aangenamer te maken. 
+                </p>
+                <span class="link"> <a href="../onze-organisatie/onze-organisatie.html"> -> Meer lezen </a> </span>
+            </div>
+            <div class="subsection">
+                <h2> Support </h2>
+                <div class="table columns2"> 
+                    <div>Email:</div> <div>info@gekkechallengers.nl</div> 
+                    <div>Telefoonnummer:</div> <div>+31 6 123 456 78</div>
+                    <div>Adres:</div> <div>Zoetermeer, Gekke Challengerstraat 12</div>
+                </div>
+                <span class="link"> <a href="../support/support.html"> -> Bereik ons </a> </span>
+            </div>
+        </div>
+    </body>    
+</html>

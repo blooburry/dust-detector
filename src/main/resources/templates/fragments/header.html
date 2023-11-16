@@ -1,0 +1,25 @@
+<h1> Dust Detector </h1>
+<div class="navbar">
+    <ul>
+        <li class="nav">
+            <a th:onclick="redirectTo('/home')" class="nav-text"> Home </a>
+        </li>
+        <li class="nav">
+            <a th:onclick="redirectTo('/signin')" class="nav-text"> Inloggen / Registreren </a>
+        </li>
+        <li class="nav">
+            <a th:onclick="redirectTo('/medische-informatie')" class="nav-text"> Waarom is stof een probleem? </a>
+        </li>
+        <li class="nav">
+            <a th:onclick="redirectTo('/support')" class="nav-text"> Support </a>
+        </li>
+    </ul>
+</div>
+
+<script th:inline="javascript">
+
+    // redirects users to a different page
+    function redirectTo(url) {
+        window.location.href = /*[[@{/}]]*/ url; // the string is a Thymeleaf expression used to generate the context-relative URL for the specified path
+    }
+</script>

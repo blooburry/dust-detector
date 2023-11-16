@@ -1,0 +1,59 @@
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <link rel="stylesheet" th:href="@{/css/signup.css}">
+        <link rel="stylesheet" th:href="@{/css/styles.css}">
+    </head>
+    
+    <body>
+        <!-- Thymeleaf navbar fragment is inserted here -->
+        <div th:replace="fragments/header :: header"></div>
+
+        <div class="wrapper">
+            <div class="register-content">
+                <h2> Registreren </h2>
+                <label> Gebruikersnaam </label>
+                <input type="text">
+                <label> Wachtwoord </label>
+                <input type="text">
+                <label> Herhaal Wachtwoord </label>
+                <input type="text">
+            </div>
+            <button> OK </button>
+            <p>
+                Al een account? <span class="link"> Inloggen </span>
+            </p>
+        </div>
+    </body>
+</html>
+
+<script th:inline="javascript">
+    function submitSignUp() {
+        var username = document.getElementById('username').value;
+        var password = document.getElementById('password').value;
+        var repeatPassword = document.getElementById('repeatPassword').value;
+
+        var signUpData = {
+            username: username,
+            password: password,
+            repeatPassword: repeatPassword
+            // Add address fields to signUpData if needed
+        };
+
+        // Send HTTP POST Request to /api/signup with JavaScript Fetch API.
+        fetch('/api/signup', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(signUpData),
+        })
+        .then(response => {
+            if (response.ok) {
+                console.log('User registered successfully');
+            } else { // Request was sent, but Response is error.
+                console.error('Error registering user');
+            }
+        })
+        .catch(error => console.error('Error:', error)); // Request could not be sent
+    }
+</script>
