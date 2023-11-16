@@ -1,26 +1,120 @@
 package com.example.dustdetector.repository;
-import org.springframework.jdbc.core.JdbcTemplate;
 
-import com.example.dustdetector.model.User;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
+import org.springframework.data.jpa.repository.Modifying;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.stereotype.Repository;
 
-import java.util.List;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
-public class UserRepository {
-    private final JdbcTemplate jdbcTemplate;
+import java.util.Collection;
 
-    public UserRepository(JdbcTemplate jdbcTemplate) {
-        this.jdbcTemplate = jdbcTemplate;
-    }
+@Entity
+@Table(name = "User")
+class User {
 
-    public void save(User user) {
-        // JDBC implementation to save user to the database
-    }
+   @Id
+   @GeneratedValue(strategy = GenerationType.IDENTITY)
+   @Column(name = "id")
+   private int id;
 
-    public User findById(Long id) {
-        // JDBC implementation to retrieve user by id from the database
-    }
+   @Column(name = "Gebruikersnaam", nullable = false)
+   private String username;
 
-    public List<User> findAll() {
-        // JDBC implementation to retrieve all users from the database
-    }    
+   @Column(name = "Wachtwoord", nullable = false)
+   private String password;
+
+   @Column(name = "Telefoonnummer")
+   private String phoneNumber;
+
+   @Column(name = "Emailadres")
+   private String email;
+
+   @Column(name = "Rol", nullable = false)
+   private int role;
+
+   @Column(name = "2FAKey")
+   private String twoFAKey;
+
+   // Getters and Setters
+   public int getId() {
+       return id;
+   }
+
+   public void setId(int id) {
+       this.id = id;
+   }
+
+   public String getUsername() {
+       return username;
+   }
+
+   public void setUsername(String username) {
+       this.username = username;
+   }
+
+   public String getPassword() {
+       return password;
+   }
+
+   public void setPassword(String password) {
+       this.password = password;
+   }
+
+   public String getPhoneNumber() {
+       return phoneNumber;
+   }
+
+   public void setPhoneNumber(String phoneNumber) {
+       this.phoneNumber = phoneNumber;
+   }
+
+   public String getEmail() {
+       return email;
+   }
+
+   public void setEmail(String email) {
+       this.email = email;
+   }
+
+   public int getRole() {
+       return role;
+   }
+
+   public void setRole(int role) {
+       this.role = role;
+   }
+
+   public String getTwoFAKey() {
+       return twoFAKey;
+   }
+
+   public void setTwoFAKey(String twoFAKey) {
+       this.twoFAKey = twoFAKey;
+   }
+}
+
+@Repository
+public interface UserRepository extends JpaRepository<User, Integer> {
+    @Query("SELECT u FROM User u WHERE u.role = ?1")
+    Collection<User> findUsersByRole(Integer role);
+  
+    @Query("SELECT u FROM User u WHERE u.email = ?1")
+    User findUserByEmail(String email);
+  
+    @Modifying
+    @Query("UPDATE User u SET u.password = ?1 WHERE u.id = ?2")
+    void updateUserPassword(String password, Integer id);
+  
+    @Modifying
+    @Query("DELETE FROM User u WHERE u.id = ?1")
+    void deleteUserById(Integer id);
 }
