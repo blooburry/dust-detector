@@ -1,0 +1,162 @@
+:root{
+    --titel: #0090e3;
+    --div: whitesmoke;
+    --tekst: black;
+    --back: rgba(255, 255, 255, 0.4);
+    --hover: rgb(0,102,51);
+}
+body, html{
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+}
+body{
+    background-color: lightgray;
+}
+div{
+    display: block;
+}
+.grid-container{
+    text-align: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 75px, 75px, 75px, 75px;
+    grid-template-areas:
+    "banner banner banner banner"
+    "navbar navbar navbar navbar"
+    "image image info info"
+    "image image button1 button1"
+    "footer footer footer footer"
+    ;
+}
+/* begin banner */
+.banner{
+    grid-area: banner;
+    text-align: center;
+    margin: 5px;
+    background-color: var(--titel);
+}
+/* einde banner */
+/* begin navbar */
+.navbar{
+    grid-area: navbar;
+    text-align: center;
+    margin: 5px;
+    font-size: 16px;
+    box-sizing: border-box;
+    background-color: var(--back);
+}
+.navbar ul{
+    grid-area: navbar;
+    /* position: fixed; */
+    top: 0;
+    width: 100%;
+}
+.navbar ul li{
+    list-style-type: none;
+    text-decoration: none;
+    display: inline-block;
+    padding: 5px 25px;
+    position: relative;
+    color: #0090e3;
+    /* border-bottom: 2px solid var(--titel); */
+}
+.navbar li#current{
+    border-bottom:2px solid black;
+}
+.navbar li a:hover{
+    text-decoration: underline;
+    /* background-color: var(--titel); */
+}
+span{
+    color: var(--titel);
+    text-decoration: underline;
+    font-style: italic;
+}
+/* einde navbar */
+
+/* begin img */
+.image{
+    grid-area: image;
+    text-align: center;
+    box-sizing: border-box;
+    margin: 5px;
+}
+.img{
+    background-color: var(--back);
+    padding: 10px;
+}
+/* einde img */
+
+/* begin info */
+.info{
+    grid-area: info;
+    text-align: center;
+    margin: 5px;
+    box-sizing: border-box;
+}
+.infotekst{
+    background-color: var(--back);
+    padding: 10px;
+}
+/* einde info */
+
+/* begin button */
+.button {
+    grid-area: button1;
+    border: none;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 5px;
+    background-color: var(--titel);
+    width: 75%;
+    display: block;
+  }
+  .button:hover{
+    text-decoration: underline;
+    /* background-color: var(--hover); */
+  }
+/* einde button */
+
+/* begin footer */
+.footer{
+    grid-area: footer;
+    text-align: center;
+    margin: 5px;
+    box-sizing: border-box;
+}
+.footertekst{
+    background-color: var(--back);
+    padding: 10px;
+}
+/* einde footer */
+
+/* begin tekst */
+a{
+    color: var(--titel);
+    text-decoration: none;
+}
+h2{
+    /* background-color: var(--titel); */
+    color: var(--titel);
+    font-size: 30px;
+}
+p{
+    /* background-color: var(--div); */
+    color: var(--tekst);
+}
+/* einde tekst */
+
+/* begin images */
+img{
+    height: 100%;
+    width: auto;
+    margin: 5px;
+}
+/* einde images */
+
