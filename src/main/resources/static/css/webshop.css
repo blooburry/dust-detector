@@ -3,7 +3,6 @@
     --div: whitesmoke;
     --tekst: black;
     --back: rgba(255, 255, 255, 0.4);
-    --hover: rgb(0,102,51);
 }
 body, html{
     height: 100%;
@@ -60,7 +59,7 @@ div{
     display: inline-block;
     padding: 5px 25px;
     position: relative;
-    color: #0090e3;
+    color: var(--titel);
     /* border-bottom: 2px solid var(--titel); */
 }
 .navbar li#current{
@@ -119,7 +118,6 @@ span{
   }
   .button:hover{
     text-decoration: underline;
-    /* background-color: var(--hover); */
   }
 /* einde button */
 
@@ -142,12 +140,10 @@ a{
     text-decoration: none;
 }
 h2{
-    /* background-color: var(--titel); */
     color: var(--titel);
     font-size: 30px;
 }
 p{
-    /* background-color: var(--div); */
     color: var(--tekst);
 }
 /* einde tekst */
@@ -157,6 +153,12 @@ img{
     height: 100%;
     width: auto;
     margin: 5px;
+}
+img.device {
+    max-width: 250px;
+    max-height: 250px;
+
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.6);
 }
 /* einde images */
 
