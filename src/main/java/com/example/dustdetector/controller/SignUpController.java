@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.dustdetector.dto.SignUpDTO;
-import com.example.dustdetector.repository.UserRepository;
 import com.example.dustdetector.service.UserService;
 
 import javax.validation.Valid;

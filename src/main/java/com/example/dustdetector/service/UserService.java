@@ -1,5 +1,7 @@
 package com.example.dustdetector.service;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,17 +15,11 @@ public class UserService {
     private UserRepository userRepository;
 
     public void createUser(String username, String password, String phoneNumber, String email) {
-        userRepository.createUser(
-            username,
-            password,
-            phoneNumber,
-            email,
-            1, // 1 voor klant
-            null // 2FA key is aanvankelijk NULL
-        );
+        User u = new User(0, username, password, phoneNumber, email, 1, email);
+        userRepository.save(u);
     }
 
-    public User findUserByEmail(String email) {
+    public Optional<User> findUserByEmail(String email) {
         return userRepository.findUserByEmail(email);
     }
 }
