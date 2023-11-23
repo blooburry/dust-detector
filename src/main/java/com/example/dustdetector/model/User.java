@@ -8,27 +8,25 @@ import lombok.*;
 @Data
 @AllArgsConstructor
 public class User {
-
    @Id
    @GeneratedValue(strategy = GenerationType.IDENTITY)
-   @Column(name = "id")
    private int id;
 
-   @Column(name = "Gebruikersnaam", nullable = false)
+   @Column(nullable = false)
    private String username;
 
-   @Column(name = "Wachtwoord", nullable = false)
+   @Column(nullable = false)
    private String password;
 
-   @Column(name = "Telefoonnummer")
-   private String phoneNumber;
+   @Column
+   private String phone;
 
-   @Column(name = "Emailadres")
+   @Column
    private String email;
 
-   @Column(name = "Rol", nullable = false)
+   @Column(nullable = false)
    private int role;
 
-   @Column(name = "2FAKey")
-   private String twoFAKey;
+   @Column
+   private String verificationKey;
 }

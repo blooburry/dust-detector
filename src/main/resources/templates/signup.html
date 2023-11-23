@@ -6,19 +6,23 @@
     
     <body>
         <!-- Thymeleaf navbar fragment is inserted here -->
-        <div th:replace="fragments/header :: header"></div>
+        <div th:replace="~{fragments/header :: header}"></div>
 
         <div class="wrapper">
             <div class="register-content">
                 <h2> Registreren </h2>
                 <label> Gebruikersnaam </label>
-                <input type="text">
+                <input type="text" id="username">
                 <label> Wachtwoord </label>
-                <input type="text">
+                <input type="text" id="password">
                 <label> Herhaal Wachtwoord </label>
-                <input type="text">
+                <input type="text" id="repeatPassword">
+                <label> Email </label>
+                <input type="text" id="email">
+                <label> Telefoonnummer </label>
+                <input type="text" id="phone">
             </div>
-            <button> OK </button>
+            <button th:onclick="submitSignUp()"> OK </button>
             <p>
                 Al een account? <span class="link"> Inloggen </span>
             </p>
@@ -28,16 +32,24 @@
 
 <script th:inline="javascript">
     function submitSignUp() {
+        console.log('Gebruiker heeft geprobeerd te registreren!');
+
         var username = document.getElementById('username').value;
         var password = document.getElementById('password').value;
         var repeatPassword = document.getElementById('repeatPassword').value;
+        var email = document.getElementById('email').value;
+        var phoneNumber = document.getElementById('phone').value;
 
         var signUpData = {
-            username: username,
-            password: password,
-            repeatPassword: repeatPassword
-            // Add address fields to signUpData if needed
+            username,
+            password,
+            repeatPassword,
+            email,
+            phoneNumber
         };
+
+        console.log('Will send POST request to server:');
+        console.log(signUpData);
 
         // Send HTTP POST Request to /api/signup with JavaScript Fetch API.
         fetch('/api/signup', {

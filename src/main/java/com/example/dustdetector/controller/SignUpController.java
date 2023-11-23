@@ -1,5 +1,7 @@
 package com.example.dustdetector.controller;
 
+import java.util.Optional;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,16 +15,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.dustdetector.dto.SignUpDTO;
+import com.example.dustdetector.model.User;
 import com.example.dustdetector.service.UserService;
 
-import javax.validation.Valid;
+import jakarta.validation.Valid;
+
 
 @Controller
 public class SignUpController {
 
     @GetMapping("/signup")
     public String signup() {
-        return "/signup";
+        return "signup";
     }
 }
 
@@ -33,14 +37,18 @@ class SignUpRestController {
     @Autowired
     private UserService userService;
 
-    private static final Logger logger = LoggerFactory.getLogger(PingController.class);    
+    private static final Logger logger = LoggerFactory.getLogger(SignUpController.class);
 
     @PostMapping("/signup")
     public ResponseEntity<String> signUp(@Valid @RequestBody SignUpDTO user) {
 
+        this.logger.info("Received signup request");
+        this.logger.info(user.toString());
+
         try {
             // Validate if the user with the given email already exists
-            if (userService.findUserByEmail(user.getEmail()) != null) {
+            Optional<User> conflictingUser = userService.findUserByEmail(user.getEmail());
+            if (conflictingUser.isPresent()) {
                 this.logger.error("User with the provided email already exists");
                 return new ResponseEntity<>("User with the provided email already exists", HttpStatus.CONFLICT);
             }

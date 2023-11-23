@@ -1,9 +1,8 @@
 package com.example.dustdetector.dto;
 import org.springframework.validation.annotation.Validated;
 
+import jakarta.validation.constraints.*;
 import lombok.Data;
-
-import javax.validation.constraints.NotBlank;
 
 @Validated
 @Data
@@ -15,6 +14,7 @@ public class SignUpDTO {
     private String password;
 
     @NotBlank(message = "Email kan niet leeg worden gelaten.")
+    @Email(message = "Email should be valid")
     private String email;
 
     @NotBlank(message = "Telefoonnummer kan niet leeg worden gelaten.")
