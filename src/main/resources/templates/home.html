@@ -6,18 +6,10 @@
         <link th:href="@{/css/home.css}" rel="stylesheet" />
     </head>
     <body>
-        <h1> Dust Detector </h1>
-        <div class="navbar">
-            <div class="nav">
-                <a href="../signin-signup/signin.html" class="nav-text"> Inloggen / Registreren </a>
-            </div>
-            <div class="nav">
-                <a href="../medische-informatie/medische-informatie.html" class="nav-text"> Waarom is stof een probleem? </a>
-            </div>
-            <div class="nav">
-                <a href="../support/support.html" class="nav-text"> Support </a>
-            </div>
-        </div>
+        <!-- Thymeleaf navbar fragment is inserted here -->
+        <div th:replace="~{fragments/header :: header}"></div>
+
+        <!-- Main content -->
         <div class="section">
             <div class="subsection product">
                 <h2> Ons Product </h2>

@@ -1,0 +1,27 @@
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <link rel="stylesheet" th:href="@{/css/signin.css}">
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+
+<body>
+    <!-- Thymeleaf navbar fragment is inserted here -->
+    <div th:replace="~{fragments/header :: header}"></div>
+
+    <div class="wrapper">
+        <div class="login-content">
+            <h2> Inloggen </h2>
+            <label> Gebruikersnaam </label>
+            <input type="text">
+            <label> Wachtwoord </label>
+            <input type="text">
+        </div>
+        <button> OK </button>
+        <p>
+            Nog geen account? <span class="link"> <a th:href="@{/signup}"> Registreren </a> </span>
+        </p>
+    </div>
+</body>
+
+</html>

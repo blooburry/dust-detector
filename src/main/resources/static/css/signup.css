@@ -1,0 +1,44 @@
+div.wrapper {
+    margin: auto;
+    width: 60%;
+
+    background-color: rgba(255, 255, 255, 0.6);
+    border-radius: 5px;
+
+    text-align: center;
+
+    padding: 10px;
+}
+
+div.register-content {
+    
+    display: flex;
+    flex-flow: column;
+
+    margin: 20px 0px;
+}
+
+button {
+    border-radius: 5px;
+    background-color: black;
+    color: white;
+    padding: 5px;
+    margin: 20px 0px;
+
+    min-width: 100%;
+
+    font-family: inherit;
+    font-size: inherit;
+}
+
+button:hover {
+    text-decoration: underline;
+}
+
+div.address {
+    width: 80%;
+    margin: auto;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+}
