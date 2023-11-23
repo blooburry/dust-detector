@@ -1,25 +1,45 @@
-<html xmlns:th="http://www.thymeleaf.org">
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
     <title>Home</title>
-    <link th:href="@{/css/home.css}" rel="stylesheet" />
-    <link th:href="@{/css/index.css}" rel="stylesheet" />
 </head>
-
 <body>
     <div class="grid-container">
-        <!-- Thymeleaf navbar fragment is inserted here -->
-        <div th:replace="fragments/header :: header"></div>
+        <div class="banner">
+            <h1>Stof Detector</h1>
+        </div><br>
+        <!-- begin navbar -->
+        <div class="navbar">
+            <div class="nav">
+                <ul>
+                    <li>
+                        <a href=""><span>Home</span></a>
+                    </li>
+                    <li>
+                        <a href="">Medische-informatie</a>
+                    </li>
+                    <li>
+                        <a href="">Webshop</a>
+                    </li>
+                    <li>
+                        <a href="">Support</a>
+                    </li>
+                    <li>
+                        <a href="">Inlog</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- einde navbar -->
 
         <!-- begin product -->
         <div class="product">
             <div class="producttekst">
                 <h2>Ons product</h2>
-                <img src="../img/device.png" alt="een SmokeSensor apparaat" class="device">
+                <img src="device.png" alt="een SmokeSensor apparaat" class="device">
                 <p>
                     Ons product komt hier met uitleg te staan<br>
                     Moet nog aangepast worden<br>
@@ -33,12 +53,11 @@
         <div class="ons">
             <div class="onstekst">
                 <h2>Over ons</h2>
->>>>>>> nikki
                 <p>
                     Hier komt informatie over de gekke challengers,
                     maar die moet nog gemaakt worden.
                 </p>
-                <span class="link"><a href="../support/support.html">-> Meer lezen</a></span>
+                <span class="link"><a href="">-> Meer lezen</a></span>
             </div>
         </div>
         <!-- einde over ons -->
@@ -48,9 +67,8 @@
             <div class="supporttekst">
                 <h2>Support</h2>
                 <p>Email: info@gekkechallengers.nl<br>
-                    <br>Email: info@gekkechallengers.nl<br>
-                    <br>Email: info@gekkechallengers.nl
-                </p>
+                <br>Email: info@gekkechallengers.nl<br>
+                <br>Email: info@gekkechallengers.nl</p>
                 <span class="link"><a href="">-> Bereik ons</a></span>
             </div>
         </div>
@@ -66,5 +84,4 @@
         <!-- einde footer -->
     </div>
 </body>
-
 </html>

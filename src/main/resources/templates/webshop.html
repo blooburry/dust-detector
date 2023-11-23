@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link th:href="@{/css/webshop.css}" rel="stylesheet" />
+    <link th:href="@{/css/index.css}" rel="stylesheet" />
+    <title>Webshop</title>
+</head>
+
+<body>
+    <div class="grid-container">
+        <!-- Thymeleaf navbar fragment is inserted here -->
+        <div th:replace="fragments/header :: header"></div>
+
+        <!-- begin image -->
+        <div class="image">
+            <div class="img">
+                <h2>Hier komt een plaatje</h2>
+                <img src="ontwerp.jpg" alt="Een SmokeSensor apparaat" class="device">
+            </div>
+        </div>
+        <!-- einde image -->
+
+        <!-- begin info -->
+        <div class="info">
+            <div class="infotekst">
+                <h2>Informatie product</h2>
+                <p>
+                    Hier komt de prijs en alle info van de stofdetector<br>
+                    - de lampjes uitleg kort<br>
+                    - groen uitleg goed met stof<br>
+                    - oranje uitleg matig met stof<br>
+                    - rood uitleg veel stof<br>
+                    - werkt met bluetooth<br>
+                    - moet je echt hebben<br>
+                    - werkt op batterijen<br>
+                    - meldingen via email of sms<br>
+                    - wil je kopen? eerst account maken<br>
+                    - wij krijgen melding voor vervanging/reparatie<br>
+                    - hoe duur is het<br>
+                </p>
+            </div>
+        </div>
+        <!-- einde info -->
+
+        <!-- begin button -->
+        <div class="button1">
+            <button class="button">Toevoegen!</button>
+        </div>
+        <!-- einde button -->
+
+        <!-- begin footer -->
+        <div class="footer">
+            <div class="footertekst">
+                <h2>Footer (komt andere titel)</h2>
+                <p>Hier komt info in het kort te staan</p>
+            </div>
+        </div>
+        <!-- einde footer -->
+    </div>
+</body>
+
+</html>
