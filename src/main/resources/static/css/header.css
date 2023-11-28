@@ -1,0 +1,46 @@
+/* begin banner */
+.banner{
+    grid-area: banner;
+    text-align: center;
+    margin: 5px;
+    background-color: var(--titel);
+    color: white;
+}
+/* einde banner */
+/* begin navbar */
+.navbar{
+    grid-area: navbar;
+    text-align: center;
+    margin: 5px;
+    font-size: 16px;
+    box-sizing: border-box;
+    background-color: var(--back);
+}
+.navbar ul{
+    grid-area: navbar;
+    /* position: fixed; */
+    top: 0;
+    width: 100%;
+}
+.navbar ul li{
+    list-style-type: none;
+    text-decoration: none;
+    display: inline-block;
+    padding: 5px 25px;
+    position: relative;
+    color: var(--titel);
+    /* border-bottom: 2px solid var(--titel); */
+}
+.navbar li#current{
+    border-bottom:2px solid black;
+}
+.navbar li a:hover{
+    text-decoration: underline;
+    /* background-color: var(--titel); */
+}
+span{
+    color: var(--titel);
+    text-decoration: underline;
+    font-style: italic;
+}
+/* einde navbar */

@@ -1,26 +1,23 @@
-<html xmlns:th="http://www.thymeleaf.org">
-    <body>
-        <header th:fragment="header">
-            <h1> Dust Detector </h1>
-            <div class="navbar">
-                <ul>
-                    <li class="nav">
-                        <a th:href="@{/home}" class="nav-text"> Home </a>
-                    </li>
-                    <li class="nav">
-                        <a th:href="@{/signin}" class="nav-text"> Inloggen / Registreren </a>
-                    </li>
-                    <li class="nav">
-                        <a th:href="@{/webshop}" class="nav-text"> Webshop </a>
-                    </li>
-                    <li class="nav">
-                        <a th:href="@{/medische-informatie}" class="nav-text"> Waarom is stof een probleem? </a>
-                    </li>
-                    <li class="nav">
-                        <a th:href="@{/support}" class="nav-text"> Support </a>
-                    </li>
-                </ul>
-            </div>
-        </header>
-    </body>
-</html>
+<header th:fragment="header" xmlns:th="http://www.thymeleaf.org">
+    <link rel="stylesheet" th:href="@{/css/header.css}" type="text/css">
+    <h2 class="page-title banner"> Dust Detector </h2>
+    <div class="navbar">
+        <ul>
+            <li class="nav">
+                <a th:href="@{/home}" class="nav-text"> Home </a>
+            </li>
+            <li class="nav">
+                <a th:href="@{/signin}" class="nav-text"> Inloggen / Registreren </a>
+            </li>
+            <li class="nav">
+                <a th:href="@{/webshop}" class="nav-text"> Webshop </a>
+            </li>
+            <li class="nav">
+                <a th:href="@{/medische-informatie}" class="nav-text"> Waarom is stof een probleem? </a>
+            </li>
+            <li class="nav">
+                <a th:href="@{/support}" class="nav-text"> Support </a>
+            </li>
+        </ul>
+    </div>
+</header>

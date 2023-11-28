@@ -1,24 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link th:href="@{/css/styles.css}" rel="stylesheet" />
     <link th:href="@{/css/webshop.css}" rel="stylesheet" />
-    <link th:href="@{/css/index.css}" rel="stylesheet" />
     <title>Webshop</title>
 </head>
 
 <body>
+    <!-- Thymeleaf navbar fragment is inserted here -->
+    <header th:insert="~{fragments/header :: header}"></header>
     <div class="grid-container">
-        <!-- Thymeleaf navbar fragment is inserted here -->
-        <div th:replace="fragments/header :: header"></div>
 
         <!-- begin image -->
         <div class="image">
             <div class="img">
                 <h2>Hier komt een plaatje</h2>
-                <img src="ontwerp.jpg" alt="Een SmokeSensor apparaat" class="device">
+                <img th:src="@{/img/ontwerp.jpg}" alt="Een SmokeSensor apparaat" class="device">
             </div>
         </div>
         <!-- einde image -->

@@ -20,11 +20,11 @@
                 <label> Email </label>
                 <input type="text" id="email">
                 <label> Telefoonnummer </label>
-                <input type="text" id="phone">
+            <input type="text" id="phone">
             </div>
             <button th:onclick="submitSignUp()"> OK </button>
             <p>
-                Al een account? <span class="link"> Inloggen </span>
+                Al een account? <span class="link"> <a th:href="@{/signin}"> Inloggen </a> </span>
             </p>
         </div>
     </body>

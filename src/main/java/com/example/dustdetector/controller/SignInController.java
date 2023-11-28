@@ -32,7 +32,7 @@ public class SignInController {
 
 @RestController
 @RequestMapping("/api")
-class SignUpRestController {
+class SignInRestController {
 
     @Autowired
     private UserService userService;

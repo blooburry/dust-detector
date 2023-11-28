@@ -5,24 +5,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link th:href="@{/css/home.css}" rel="stylesheet"/>
+    <link th:href="@{/css/styles.css}" rel="stylesheet"/>
     <title>Home</title>
-    <link th:href="@{/css/home.css}" rel="stylesheet" />
-    <link th:href="@{/css/index.css}" rel="stylesheet" />
 </head>
 
 <body>
     <div class="grid-container">
         <!-- Thymeleaf navbar fragment is inserted here -->
-        <div th:replace="fragments/header :: header"></div>
+        <div th:replace="~{fragments/header :: header}"></div>
 
         <!-- begin product -->
         <div class="product">
             <div class="producttekst">
                 <h2>Ons product</h2>
-                <img src="../img/device.png" alt="een SmokeSensor apparaat" class="device">
+                <img th:src="@{/img/device.png}" alt="een SmokeSensor apparaat" class="device">
                 <p>
-                    Ons product komt hier met uitleg te staan<br>
-                    Moet nog aangepast worden<br>
+                    Ontdek de revolutionaire Stofdetector, jouw ultieme bondgenoot tegen longaandoeningen en stofallergieën!
+                    Met geavanceerde technologie biedt de stofdetector zekerheid en een gezonde leefomgeving. 
+                    Investeer in welzijn en adem gemakkelijk!  
                 </p>
                 <span class="link"><a href=""> -> Meer lezen</a></span>
             </div>
@@ -33,12 +34,15 @@
         <div class="ons">
             <div class="onstekst">
                 <h2>Over ons</h2>
->>>>>>> nikki
                 <p>
-                    Hier komt informatie over de gekke challengers,
-                    maar die moet nog gemaakt worden.
+                    Onze waarden/missie: Onze kernwaarden omvatten betaalbaarheid, 
+                    snelle levering en optimale prestaties. We streven naar financieel toegankelijke, 
+                    direct beschikbare en uitstekend functionerende producten. 
+                    Als non-profitorganisatie ondersteunen we mensen met allergieën of longaandoeningen en 
+                    bieden we betaalbare oplossingen. Onze missie is het bevorderen van welzijn, 
+                    met aandacht voor individuen met specifieke gezondheidsbehoeften, zonder winstoogmerk als leidende drijfveer. 
                 </p>
-                <span class="link"><a href="../support/support.html">-> Meer lezen</a></span>
+                <span class="link"><a th:href="@{/support.html}">-> Meer lezen</a></span>
             </div>
         </div>
         <!-- einde over ons -->
