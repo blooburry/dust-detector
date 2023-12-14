@@ -16,7 +16,7 @@ public class User {
    private String username;
 
    @Column(nullable = false)
-   private String password;
+   private String password; // Hashed with BCrypt
 
    @Column
    private String phone;
@@ -25,7 +25,7 @@ public class User {
    private String email;
 
    @Column(nullable = false)
-   private int role;
+   private int role; // 0 for Admin, 1 for User
 
    @Column
    private String verificationKey;

@@ -8,6 +8,7 @@ import lombok.Data;
 @Data
 public class SignUpDTO {
     @NotBlank(message = "Gebruikersnaam kan niet leeg worden gelaten.")
+    @Pattern(regexp = "^[a-zA-Z0-9]{4,16}$", message = "Username must be alphanumeric and between 4 and 16 characters")
     private String username;
 
     @NotBlank(message = "Wachtwoord kan niet leeg worden gelaten.")
