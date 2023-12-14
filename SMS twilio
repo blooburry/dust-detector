@@ -1,0 +1,25 @@
+package com.twilio; 
+
+import com.twilio.Twilio;
+import com.twilio.rest.api.v2010.account.Message;
+import com.twilio.type.PhoneNumber;
+
+public class SendSms {
+
+    public static final String ACCOUNT_SID = "ACebf6d2efc51fa7dc029012b929abd58a";
+    public static final String AUTH_TOKEN = "c0b18b1755aca4a7bc0cad7c9c3e2459";
+
+    public static void main(String[] args) {
+        Twilio.init(ACCOUNT_SID, AUTH_TOKEN); 
+        Message message = Message.creator(
+            new PhoneNumber("+31681819614"),
+            new PhoneNumber("+18173826759"),
+            "Heyyyyyy ik ben het wani!!"
+
+        )
+        .create ();
+
+        System.out.println(message.getSid());
+
+    }
+}
