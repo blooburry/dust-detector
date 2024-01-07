@@ -9,15 +9,21 @@
     <!-- Thymeleaf navbar fragment is inserted here -->
     <header th:insert="~{fragments/header :: header}"></header>
 
+    <div id="errorPopup" style="display: none;">
+        <p class="error-message"> U kon niet worden ingelogd :( </p>
+        <button th:onclick="closePopup()" class="popup-button"> OK </button>
+    </div>
+
     <div class="wrapper">
-        <div class="login-content">
+        <form th:action="@{/signin}" method="post" class="login-content">
             <h2> Inloggen </h2>
-            <label> Gebruikersnaam </label>
-            <input type="text">
-            <label> Wachtwoord </label>
-            <input type="text">
-        </div>
-        <button> OK </button>
+            <label class="form-label"> Gebruikersnaam </label>
+            <input type="text" name="username" placeholder="Username" />
+            <label class="form-label"> Wachtwoord </label>
+            <input type="password" name="password" placeholder="Password" />
+            <br>
+            <button th:onclick="'sendSigninRequest(event);'" class="submit"> OK </button>
+        </form>
         <p>
             Nog geen account? <span class="link"> <a th:href="@{/signup}"> Registreren </a> </span>
         </p>
@@ -25,3 +31,31 @@
 </body>
 
 </html>
+
+<script>
+    function sendSigninRequest(event) {
+        event.preventDefault();
+
+        console.log("Signin POST Request wordt verstuurd");
+
+        fetch('/signin', {
+            method: 'POST',
+            body: new FormData(document.querySelector('.login-content'))
+        }).then(response => {
+            console.log("Response: " + response.status + ", Body: " + JSON.stringify(response));
+            
+            if (response.status === 200) {
+                console.log("Gebruiker successvol ingelogd!");
+            } else {
+                console.log("Gebruiker kon niet worden ingelogd, verkeerde combinatie van gebruikersnaam en wachtwoord");
+                document.getElementById('errorPopup').style.display = 'block';
+            }
+        }).catch(error => {
+            console.log("Gebruiker kon niet worden ingelogd");
+        })
+    }
+
+    function closePopup() {
+        document.getElementById("errorPopup").style.display = 'none';
+    }
+</script>

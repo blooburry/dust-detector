@@ -20,7 +20,7 @@ div.login-content {
     color: black;
 }
 
-button {
+button.submit {
     border-radius: 5px;
     background-color: black;
     color: white;
@@ -33,6 +33,29 @@ button {
     font-size: inherit;
 }
 
-button:hover {
+button.submit:hover {
     text-decoration: underline;
+}
+
+.form-label {
+    color: black;
+}
+
+#errorPopup {
+    width: 60%;
+    position: fixed;
+
+    margin-left: 20%;
+    background: white;
+    border: 2px solid red;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.error-message {
+    font-size: large;
+}
+
+button.popup-button {
+    margin: 20px 10px;
 }

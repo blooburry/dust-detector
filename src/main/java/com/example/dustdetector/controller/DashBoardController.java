@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 @Controller
 public class DashBoardController {
 
-    @GetMapping("dashboard")
+    @GetMapping("/dashboard")
     public String dashboard() {
         return "dashboard";
     }
