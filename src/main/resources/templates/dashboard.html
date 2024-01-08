@@ -1,5 +1,12 @@
 <html xmlns:th="http://www.thymeleaf.org">
-        <!-- Thymeleaf navbar fragment is inserted here -->
-        <div th:replace="fragments/header :: header"></div>
+<!-- Thymeleaf navbar fragment is inserted here -->
+<div th:replace="~{fragments/header :: header}"></div>
+
+<div>
+        <h2> Uitloggen </h2>
+        <form th:action="@{/logout}" method="post">
+                <input type="submit" value="Log Uit"/>
+        </form>
+</div>
 
 </html>

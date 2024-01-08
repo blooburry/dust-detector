@@ -24,7 +24,7 @@ public class SecurityConfig {
 
     @Bean
     public PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
+        return new BCryptPasswordEncoder(12);
     }
 
     @Bean
@@ -38,7 +38,7 @@ public class SecurityConfig {
     }
 
     @Bean
-    public SecurityFilterChain securityFilterChain(HttpSecurity http, CustomAuthenticationHandler successHandler, CustomAuthenticationHandler failureHandler) throws Exception {
+    public SecurityFilterChain securityFilterChain(HttpSecurity http, CustomAuthenticationHandler successHandler, CustomAuthenticationHandler failureHandler, CustomLogoutHandler logoutHandler) throws Exception {
         http
                 .authorizeHttpRequests((requests) -> requests
                         .requestMatchers("/", "/home", "/signin").permitAll() // openbare paginas
@@ -50,7 +50,9 @@ public class SecurityConfig {
                         .successHandler(successHandler)
                         .failureHandler(failureHandler)
                         .permitAll())
-                .logout((logout) -> logout.permitAll());
+                .logout((logout) -> logout
+                    .logoutSuccessHandler(logoutHandler)
+                    .permitAll());
 
         return http.build();
     }

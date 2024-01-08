@@ -24,13 +24,13 @@ public class CustomAuthenticationHandler implements AuthenticationSuccessHandler
     @Override
     public void onAuthenticationFailure(HttpServletRequest request, HttpServletResponse response, AuthenticationException exception) throws IOException, ServletException {
         this.logger.info("Gebruiker kon niet worden ingelogd!");
-        response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
+        response.setStatus(HttpServletResponse.SC_UNAUTHORIZED); // 401
     }
     
     @Override
     public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException, ServletException {
         this.logger.info("Gebruiker is successvol ingelogd");
-        response.sendRedirect("/dashboard");
+        response.setStatus(HttpServletResponse.SC_OK); // 200
     }
     
 }

@@ -18,11 +18,17 @@
         <form th:action="@{/signin}" method="post" class="login-content">
             <h2> Inloggen </h2>
             <label class="form-label"> Gebruikersnaam </label>
-            <input type="text" name="username" placeholder="Username" />
+            <input type="text" name="username" id="username" placeholder="Username" oninput="checkInputs()"/>
             <label class="form-label"> Wachtwoord </label>
-            <input type="password" name="password" placeholder="Password" />
+            <input type="password" name="password" id="password" placeholder="Password" oninput="checkInputs()" />
             <br>
-            <button th:onclick="'sendSigninRequest(event);'" class="submit"> OK </button>
+            <button 
+                th:onclick="'sendSigninRequest(event);'" 
+                id="submit-button"
+                disabled
+                class="submit"> 
+                OK 
+            </button>
         </form>
         <p>
             Nog geen account? <span class="link"> <a th:href="@{/signup}"> Registreren </a> </span>
@@ -45,7 +51,7 @@
             console.log("Response: " + response.status + ", Body: " + JSON.stringify(response));
             
             if (response.status === 200) {
-                console.log("Gebruiker successvol ingelogd!");
+                window.location.replace("/dashboard");
             } else {
                 console.log("Gebruiker kon niet worden ingelogd, verkeerde combinatie van gebruikersnaam en wachtwoord");
                 document.getElementById('errorPopup').style.display = 'block';
@@ -57,5 +63,17 @@
 
     function closePopup() {
         document.getElementById("errorPopup").style.display = 'none';
+    }
+
+    function checkInputs() {
+        var username = document.getElementById('username').value;
+        var password = document.getElementById('password').value;
+        var submitButton = document.getElementById('submit-button');
+
+        if (username.trim() !== '' && password.trim() !== '') {
+            submitButton.removeAttribute('disabled');
+        } else {
+            submitButton.setAttribute('disabled', 'disabled');
+        }
     }
 </script>

@@ -37,6 +37,10 @@ button.submit:hover {
     text-decoration: underline;
 }
 
+button.submit:disabled {
+    background-color: grey;
+}
+
 .form-label {
     color: black;
 }
