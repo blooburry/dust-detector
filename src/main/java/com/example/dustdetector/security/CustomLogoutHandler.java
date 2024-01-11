@@ -17,7 +17,7 @@ import jakarta.servlet.http.HttpServletResponse;
 @Component
 public class CustomLogoutHandler implements LogoutSuccessHandler {
 
-    private static final Logger logger = LoggerFactory.getLogger(PingController.class);
+    private static final Logger logger = LoggerFactory.getLogger(CustomLogoutHandler.class);
 
     @Override
     public void onLogoutSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication)

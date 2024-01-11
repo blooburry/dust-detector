@@ -1,5 +1,6 @@
 package com.example.dustdetector.model;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import jakarta.persistence.*;
@@ -9,30 +10,35 @@ import lombok.*;
 @Table(name = "DustLevel")
 @Data
 @AllArgsConstructor
+@NoArgsConstructor
+@IdClass(DustLevelId.class)
 public class DustLevel {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
-
-    @Column(name = "detectorId")
-    private int detectorId;
-
-    @Column(name = "level")
-    private int level;
-
-    @Column(name = "date")
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date date;
-
     @ManyToOne
-    @JoinColumn(name = "detectorId", referencedColumnName = "id", insertable = false, updatable = false)
+    @JoinColumn(name = "detectorId")
     private Detector detector;
 
-    // Constructor requiring all three fields
-    public DustLevel(int detectorId, int level) {
-        this.detectorId = detectorId;
+    @Id
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "date", nullable = false)
+    private Date date;
+
+    @Column(name = "level", nullable = false)
+    private int level;
+
+    // Constructor requiring the two id fields
+    public DustLevel(Detector detector, int level) {
+        this.detector = detector;
         this.level = level;
         this.date = new Date();
     }
+}
+
+@Data
+class DustLevelId implements Serializable {
+    
+    private Detector detector;
+
+    private Date date;
 }

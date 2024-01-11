@@ -3,14 +3,19 @@ package com.example.dustdetector.security;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.annotation.Order;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.ProviderManager;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
+import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.www.BasicAuthenticationFilter;
+
 import static org.springframework.security.config.Customizer.withDefaults;
 
 import com.example.dustdetector.service.DatabaseUserDetailsService;
@@ -37,14 +42,28 @@ public class SecurityConfig {
         return providerManager;
     }
 
-    @Bean
-    public SecurityFilterChain securityFilterChain(HttpSecurity http, CustomAuthenticationHandler successHandler, CustomAuthenticationHandler failureHandler, CustomLogoutHandler logoutHandler) throws Exception {
+    @Bean // Security configuratie voor webpagina's en web API
+    @Order(1)
+    public SecurityFilterChain securityFilterChain(
+        HttpSecurity http, 
+        CustomAuthenticationHandler successHandler, 
+        CustomAuthenticationHandler failureHandler, 
+        CustomLogoutHandler logoutHandler
+    ) throws Exception {
         http
-                .authorizeHttpRequests((requests) -> requests
-                        .requestMatchers("/", "/home", "/signin").permitAll() // openbare paginas
-                        .requestMatchers("/css/**", "/js/**").permitAll()
+        .csrf(c -> c.disable())
+        .authorizeHttpRequests((requests) -> requests
                         .requestMatchers("/dashboard").authenticated() // beveiligde paginas
-                        .anyRequest().authenticated()) // overige paginas zijn ook beveiligd
+                        .requestMatchers(
+                            "/home", 
+                            "/signin", 
+                            "/api/ping",
+                            "/signup",
+                            "/api/signup",
+                            "/api/meting",
+                            "/"
+                        ).permitAll() // openbare paginas
+                        .requestMatchers("/css/**", "/js/**").permitAll())
                 .formLogin((form) -> form
                         .loginPage("/signin")
                         .successHandler(successHandler)
