@@ -1,23 +1,48 @@
 <head>
-    <link rel="stylesheet" href="medische-informatie.css">
-    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" th:href="medische-informatie.css">
+    <link th:href="@{/css/styles.css}" rel="stylesheet"/>
 </head>
 
 <body>
-    <h1> Dust Detector </h1>
-    <div class="navbar">
-        <div class="nav">
-            <a href="../home/index.html" class="nav-text"> Home </a>
-        </div>
-        <div class="nav">
-            <a href="../signin-signup/signin.html" class="nav-text"> Inloggen / Registreren </a>
-        </div>
-    </div>
-    <h2 class="page-title"> Waarom is stof een probleem? </h2>
+    <div th:replace="~{fragments/header :: header}"></div>
+    <h2 class="page-title"> Medische Informatie </h2>
     <div class="section">
         <div>
-            <h3> Medische informatie </h3>
-            <p> Medische informatie blablablabla </p>
+            <h3> Wat is stof? </h3>
+            <p> 
+                Stof bevat roetdeeltjes, huisstofmijt, huidschilfers, allergenen, schimmels, bacteriën,
+                 sporen en virussen. Stof is een mix van microscopische kleine deeltjes afkomstig van diverse bronnen, 
+                 zoals textiel, huidschilfers papier, natuurlijke materialen en vuil. Deze deeltjes kunnen vrijwel alles 
+                 zijn en ontstaan zowel binnen als buiten. Stof is niet alleen hinderlijk, maar ook lastig te vermijden. 
+            </p> 
+            <h3> Waar komt stof vandaan? </h3> 
+            <p>
+                Stof ontstaat uit huidschilfers, haren van mensen en huisdieren, vezels van kleding, meubels en boeken, 
+                en zelfs van buiten door zandkorrels en gruis. Het bevat ook huismijten, microscopische beestjes die zich 
+                voeden met de deeltjes in stof. Dit stof kan leiden tot gezondheidsproblemen, omdat het een voedingsbron is 
+                voor bacteriën en schimmels.
+            </p>
+            <h3> Gezonheidsrisico's  van te veel stof </h3>
+            <p>
+                Stof in huis kan bijdragen aan allergieën, ademhalingsproblemen en astma. Micro-organismen zoals bacteriën 
+                en schimmels groeien op stof en kunnen bewoners ziek maken. Bovendien kunnen de kleinste deeltjes, fijnstof 
+                genoemd, schade aanrichten in de longen en luchtwegen, vooral bij mensen met bestaande long- en luchtwegaandoeningen.
+            </p>
+            <h3> Hoe voorkom je overmatig stof? </h3>            
+            <ul>
+                <li> Zorg voor een goede luchtvochtigheid in huis om stofvorming te beperken. </li>
+                <li> Reinig luchtkanalen en ventilatiesystemen jaarlijks om stofverspreiding te voorkomen. </li>
+                <li> Gebruik een stofzuiger met een effectief filter. </li>
+                <li> Dweil regelmatig en gebruik vochtige doeken om stof op te nemen. </li>
+                <li> Lucht vloerkleden, beddengoed en kussens regelmatig buiten uit. </li>
+            </ul>
+            <p>
+                Stof in huis kan een bron zijn van gezondheidsproblemen en allergieën. Het verminderen van stof is essentieel 
+                voor een gezonder binnenmilieu. Door een goede luchtvochtigheid te behouden, stof van buiten te beperken en gebruik 
+                te maken van luchtreinigers met geschikte filters, kunnen we de hoeveelheid stof in huis aanzienlijk verminderen en 
+                daarmee de gezondheid van bewoners bevorderen. 
+            </p>
+
         </div>
     </div>
 </body>

@@ -20,9 +20,10 @@ a{
     color: var(--titel);
     text-decoration: none;
 }
-h2{
+h2.page-title {
     color: var(--titel);
     font-size: 30px;
+    text-align: center;
 }
 p{
     color: var(--tekst);
@@ -121,4 +122,18 @@ header {
 
 .navbar li a:hover {
     text-decoration: underline;
+}
+
+div.section {
+    margin: 0px 20px;
+    padding: 40px;
+    background-color: var(--back);
+}
+
+h3 {
+    color: black;
+}
+
+ul {
+    color: black;
 }

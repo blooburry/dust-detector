@@ -1,0 +1,39 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link th:href="@{/css/onze-organisatie.css}" rel="stylesheet" />
+    <link th:href="@{/css/styles.css}" rel="stylesheet" />
+    <title>Home</title>
+</head>
+
+<body>
+    <div class="grid-container">
+        <div th:replace="~{fragments/header :: header}"></div>
+
+        <h2 class="page-title"> Onze Organisatie </h2>
+        <div class="section">
+            <div>
+                <h3> Onze waarden </h3>
+                <p>
+                    Onze kernwaarden omvatten betaalbaarheid,
+                    snelle levering en optimale prestaties. We streven naar financieel
+                    toegankelijke, direct beschikbare en uitstekend functionerende
+                    producten. Als non-profitorganisatie ondersteunen we mensen met
+                    allergieën of longaandoeningen en bieden we betaalbare oplossingen.
+                </p>
+                <h3> Onze missie </h3>
+                <p>
+                    Onze missie is het bevorderen van welzijn, met aandacht voor individuen
+                    met specifieke gezondheidsbehoeften,
+                    zonder winstoogmerk als leidende drijfveer.
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
