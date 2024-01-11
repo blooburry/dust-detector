@@ -12,6 +12,7 @@ import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
@@ -28,7 +29,7 @@ public class EmailService {
     private static final Logger logger = LoggerFactory.getLogger(EmailService.class);
 
     @Async
-    public void sendHighDustAlertEmail(String toAddress, int stofniveau) {
+    public void sendHighDustAlertEmail(String toAddress, int stofniveau) throws TimeoutException, InterruptedException, ExecutionException {
         SimpleMailMessage msg = new SimpleMailMessage();
 
         msg.setFrom("info@dustdetector.nl");

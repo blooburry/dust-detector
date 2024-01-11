@@ -1,6 +1,8 @@
 package com.example.dustdetector.service;
 
 import java.util.Date;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.TimeoutException;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -36,7 +38,7 @@ public class DustLevelService {
     
     private static final Logger logger = LoggerFactory.getLogger(DustLevelService.class);
 
-    public void saveDustLevel(int level, int detectorId) throws ResponseStatusException {
+    public void saveDustLevel(int level, int detectorId) throws Exception {
         Detector detector = detectorRepository.findById(detectorId).orElseThrow(() -> new ResponseStatusException(HttpStatus.BAD_REQUEST, "Geen detector met id: " + detectorId) );
         DustLevel dustLevel = new DustLevel(detector, level); // een DustLevel object wordt gecreeerd
         dustLevelRepository.save(dustLevel);

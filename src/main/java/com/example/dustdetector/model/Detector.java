@@ -19,9 +19,6 @@ public class Detector {
     @Column(name = "ip_address", unique = true, nullable = false)
     private String ipAddress;
 
-    @Column(name = "api_key", nullable = false)
-    private String apiKey;
-
     @Column(name = "dateBought", nullable = false)
     @Temporal(TemporalType.DATE)
     private Date dateBought;
