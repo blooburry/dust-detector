@@ -22,7 +22,7 @@ public class UserService {
 
     public void createUser(String username, String password, String phoneNumber, String email) {
         String hash = passwordEncoder.encode(password);
-        User u = new User(0, username, hash, phoneNumber, email, 1, email);
+        User u = new User(0, username, hash, phoneNumber, email, 1, null);
         userRepository.save(u);
     }
 

@@ -107,6 +107,13 @@
 			<artifactId>spring-security-crypto</artifactId>
 			<version>6.0.3</version>
 		</dependency>
+
+		<!-- Twilio library for sending SMS messages -->
+		<dependency>
+			<groupId>com.twilio.sdk</groupId>
+			<artifactId>twilio</artifactId>
+			<version>8.8.0</version>
+		</dependency>
 	</dependencies>
 
 	<build>
