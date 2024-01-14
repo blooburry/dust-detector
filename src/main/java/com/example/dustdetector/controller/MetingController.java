@@ -1,5 +1,7 @@
 package com.example.dustdetector.controller;
 
+import java.time.Duration;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,10 +20,15 @@ import com.example.dustdetector.model.DustLevel;
 import com.example.dustdetector.service.DustLevelService;
 import com.example.dustdetector.service.EmailService;
 
+import io.github.bucket4j.Bandwidth;
+import io.github.bucket4j.Bucket;
+import io.github.bucket4j.Refill;
 import jakarta.validation.Valid;
 
 @RestController
 public class MetingController {
+
+    private final Bucket bucket;
     
     private static final Logger logger = LoggerFactory.getLogger(MetingController.class);
 
@@ -30,6 +37,13 @@ public class MetingController {
 
     @Value("${api.key}")
     private String apiKey;
+
+    public MetingController() {
+        Bandwidth limit = Bandwidth.classic(20, Refill.greedy(20, Duration.ofMinutes(1)));
+        this.bucket = Bucket.builder()
+            .addLimit(limit)
+            .build();
+    }
     
     @PostMapping("/api/meting")
     public ResponseEntity<String> ontvangMeting(
@@ -37,6 +51,9 @@ public class MetingController {
         @RequestHeader(value = "key", required = false) String requestKey
     ) {
         this.logger.info("Meting ontvangen");
+
+        if(!bucket.tryConsume(1)) return new ResponseEntity<>("Teveel requests!", HttpStatus.TOO_MANY_REQUESTS);
+
         this.logger.info("API key aan het checken...");
 
             if (requestKey == null || !requestKey.equals(apiKey)) {
