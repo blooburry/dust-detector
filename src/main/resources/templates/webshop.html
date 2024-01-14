@@ -10,15 +10,38 @@
 </head>
 
 <body>
+    <!-- popup dat wordt getoont wanneer de gebruiker een detector probeert te kopen -->
+    <div id="popup" class="popup">
+        <!-- Popup content -->
+        <div class="popup-content">
+            <p>
+                Helaas is het momenteel niet mogelijk om bestellingen te plaatsen.<br>
+                Onze excuses voor het ongemak. We ondergaan momenteel technische upgrades om uw winkelervaring te verbeteren.<br>
+                We waarderen uw geduld en moedigen u aan om binnenkort terug te keren om van onze producten en diensten te genieten.<br><br>
+        
+                Tijdens deze periode van onderhoud kunt u nog steeds onze website verkennen, productinformatie bekijken en inspiratie opdoen voor uw toekomstige aankopen.<br> 
+                We streven ernaar om spoedig weer volledig operationeel te zijn en u de best mogelijke service te bieden.<br><br>
+        
+                Voor vragen of assistentie staan onze klantenservicemedewerkers tot uw beschikking.<br>
+                U kunt contact met ons opnemen via <a th:href="@{/support}">support</a> voor verdere hulp.<br><br>
+        
+                Nogmaals onze excuses voor het eventuele ongemak dat dit kan veroorzaken.<br> 
+                We kijken ernaar uit u snel weer van dienst te kunnen zijn. <br>
+                Dank u voor uw begrip.<br>
+            </p>
+            <button onclick="closePopup()">Close</button>
+        </div>
+    </div>    
+
     <!-- Thymeleaf navbar fragment is inserted here -->
     <header th:insert="~{fragments/header :: header}"></header>
     <div class="grid-container">
 
         <!-- begin image -->
         <div class="image">
-            <div class="img">
+            <div class="images">
                 <h2>Hier komt een plaatje</h2>
-                <img th:src="@{/img/ontwerp.jpg}" alt="Een SmokeSensor apparaat" class="device">
+                <img th:src="@{/images/ontwerp.jpg}" alt="Een SmokeSensor apparaat" class="device">
             </div>
         </div>
         <!-- einde image -->
@@ -28,34 +51,49 @@
             <div class="infotekst">
                 <h2>Informatie product</h2>
                 <p>
-                    Hier komt de prijs en alle info van de stofdetector<br>
-                    - de lampjes uitleg kort<br>
-                    - groen uitleg goed met stof<br>
-                    - oranje uitleg matig met stof<br>
-                    - rood uitleg veel stof<br>
-                    - werkt met bluetooth<br>
-                    - moet je echt hebben<br>
-                    - werkt op batterijen<br>
-                    - meldingen via email of sms<br>
-                    - wil je kopen? eerst account maken<br>
-                    - wij krijgen melding voor vervanging/reparatie<br>
-                    - hoe duur is het<br>
+                    De Dust Detector is een onmisbare gadget voor iedereen die geeft om een gezonde leefomgeving. <br>
+                    Met zijn geavanceerde functies biedt deze detector niet alleen gemoedsrust, maar ook concrete informatie over de luchtkwaliteit in jouw omgeving.<br>
+                    De combinatie van lampjes en geluiden zorgt ervoor dat je direct op de hoogte bent van de aanwezigheid van stofdeeltjes in de lucht.<br>
+                    De visuele en auditieve signalen maken het gemakkelijk om snel te reageren en maatregelen te nemen om de luchtkwaliteit te verbeteren.<br>
+                    Wat de Dust Detector echt onderscheidt, is de toegang tot een handige website waar je de gedetailleerde stofwaardes kunt bekijken.<br>
+                    Dit stelt je in staat om trends in de luchtkwaliteit in de gaten te houden en indien nodig preventieve maatregelen te nemen.<br>
+                    De informatie is overzichtelijk gepresenteerd, waardoor je snel inzicht krijgt in de situatie.<br>
+                    De draadloze functionaliteit, mogelijk gemaakt door batterijen, maakt de Dust Detector uiterst flexibel en gemakkelijk te plaatsen waar je maar wilt.<br>
+                    Of het nu in de woonkamer, slaapkamer of kantoor is, deze detector houdt constant de luchtkwaliteit in de gaten, zodat jij en je dierbaren kunnen genieten van een gezondere en schonere omgeving.<br>
+                    Investeer vandaag nog in jouw welzijn en maak de Dust Detector een essentieel onderdeel van je dagelijkse leven!
                 </p>
             </div>
+            <!-- begin button -->
+            <div class="button1">
+                <button th:onclick="openPopup()" class="button">Toevoegen!</button>
+            </div>
+            <!-- einde button -->
         </div>
         <!-- einde info -->
 
-        <!-- begin button -->
-        <div class="button1">
-            <button class="button">Toevoegen!</button>
-        </div>
-        <!-- einde button -->
 
         <!-- begin footer -->
         <div class="footer">
             <div class="footertekst">
-                <h2>Footer (komt andere titel)</h2>
-                <p>Hier komt info in het kort te staan</p>
+                <!--Instagram account -- theustbuddies-->
+                <a th:href="@{https://www.instagram.com/thedustbuddies}">
+                    <img class="social" th:src="@{/images/instagram.png}" loading="lazy">
+                </a>
+                <!--tiktok account -- the.dust.buddies-->
+                <a th:href="@{https://www.tiktok.com/@the.dust.buddies}">
+                    <img class="social" th:src="@{/images/tiktok.png}" loading="lazy">
+                </a>
+                <!--Whatsapp -- eigen nummer-->
+                <a th:href="@{https://wa.me/31640202084}">
+                    <img class="socials" th:src="@{/images/whatsapp.png}" loading="lazy">
+                </a><br><br>
+                <!--Betaalmogelijkheden (Ideal, Mastercard, VISA)-->
+                <img class="social" th:src="@{/images/ideal.png}" loading="lazy">
+                <img class="social" th:src="@{/images/mastercard.png}" loading="lazy">
+                <img class="social" th:src="@{/images/visa.png}" loading="lazy">
+                <img class="social" th:src="@{/images/applepay.png}" loading="lazy"><br><br>
+                <!--2023 - stofdetector-->
+                <p class="p1"> <img class="socialss" th:src="@{/images/copyright.png}" loading="lazy" >Stofdetector</p>
             </div>
         </div>
         <!-- einde footer -->
@@ -63,3 +101,15 @@
 </body>
 
 </html>
+
+<script>
+    function openPopup() {
+        var popup = document.getElementById("popup");
+        popup.style.display = "block";
+    }
+
+    function closePopup() {
+        var popup = document.getElementById("popup");
+        popup.style.display = "none";
+    }
+</script>
