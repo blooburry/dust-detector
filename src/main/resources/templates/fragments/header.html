@@ -6,8 +6,14 @@
             <li class="nav">
                 <a th:href="@{/home}" class="nav-text"> Home </a>
             </li>
-            <li class="nav">
+            <li sec:authorize="!isAuthenticated()" class="nav">
                 <a th:href="@{/signin}" class="nav-text"> Inloggen / Registreren </a>
+            </li>
+            <li sec:authorize="isAuthenticated()" class="nav">
+                <a th:href="@{/dashboard}" class="nav-text"> Dashboard </a>
+            </li>
+            <li sec:authorize="isAuthenticated()" class="nav">
+                <a th:href="@{/webshop}" class="nav-text"> Webshop </a>
             </li>
             <li class="nav">
                 <a th:href="@{/onze-organisatie}" class="nav-text"> Onze Organisatie </a>

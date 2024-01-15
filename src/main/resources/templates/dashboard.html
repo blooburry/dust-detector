@@ -1,12 +1,27 @@
 <html xmlns:th="http://www.thymeleaf.org">
-<!-- Thymeleaf navbar fragment is inserted here -->
-<div th:replace="~{fragments/header :: header}"></div>
+<!DOCTYPE html>
+<html lang="en">
 
-<div>
-        <h2> Uitloggen </h2>
-        <form th:action="@{/logout}" method="post">
-                <input type="submit" value="Log Uit"/>
-        </form>
-</div>
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link th:href="@{/css/dashboard.css}" rel="stylesheet"/>
+        <link th:href="@{/css/styles.css}" rel="stylesheet"/>
+        <title>Dashboard</title>
+    </head>
+<body>
+        <!-- Thymeleaf navbar fragment is inserted here -->
+        <div th:replace="~{fragments/header :: header}"></div>
+        
+        <h2 class="page-title"> Dashboard </h2>
+        <div class="wrapper">
+                <div class="section">
+                        <h2> Uitloggen </h2>
+                        <form th:action="@{/logout}" method="post">
+                                <input type="submit" value="Log Uit"/>
+                        </form>
+                </div>
+        </div>
+</body>
 
 </html>
