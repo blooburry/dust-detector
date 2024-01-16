@@ -144,6 +144,7 @@ span{
     text-align: center;
     margin: 5px;
     box-sizing: border-box;
+    background-color: black;
 }
 .footertekst{
     background-color: var(--back);

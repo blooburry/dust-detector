@@ -5,8 +5,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link th:href="@{/css/home.css}" rel="stylesheet"/>
-    <link th:href="@{/css/styles.css}" rel="stylesheet"/>
+    <link th:href="@{/css/home.css}" rel="stylesheet" />
+    <link th:href="@{/css/styles.css}" rel="stylesheet" />
     <title>Home</title>
 </head>
 
@@ -21,9 +21,10 @@
                 <h2>Ons product</h2>
                 <img th:src="@{/images/ontwerp.jpg}" class="device">
                 <p>
-                    Ontdek de revolutionaire Stofdetector, jouw ultieme bondgenoot tegen longaandoeningen en stofallergieën!
-                    Met geavanceerde technologie biedt de stofdetector zekerheid en een gezonde leefomgeving. 
-                    Investeer in welzijn en adem gemakkelijk!  
+                    Ontdek de revolutionaire Stofdetector, jouw ultieme bondgenoot tegen longaandoeningen en
+                    stofallergieën!
+                    Met geavanceerde technologie biedt de stofdetector zekerheid en een gezonde leefomgeving.
+                    Investeer in welzijn en adem gemakkelijk!
                 </p>
             </div>
         </div>
@@ -34,12 +35,13 @@
             <div class="onstekst">
                 <h2>Over ons</h2>
                 <p>
-                    Onze waarden/missie: Onze kernwaarden omvatten betaalbaarheid, 
-                    snelle levering en optimale prestaties. We streven naar financieel toegankelijke, 
-                    direct beschikbare en uitstekend functionerende producten. 
-                    Als non-profitorganisatie ondersteunen we mensen met allergieën of longaandoeningen en 
-                    bieden we betaalbare oplossingen. Onze missie is het bevorderen van welzijn, 
-                    met aandacht voor individuen met specifieke gezondheidsbehoeften, zonder winstoogmerk als leidende drijfveer. 
+                    Onze waarden/missie: Onze kernwaarden omvatten betaalbaarheid,
+                    snelle levering en optimale prestaties. We streven naar financieel toegankelijke,
+                    direct beschikbare en uitstekend functionerende producten.
+                    Als non-profitorganisatie ondersteunen we mensen met allergieën of longaandoeningen en
+                    bieden we betaalbare oplossingen. Onze missie is het bevorderen van welzijn,
+                    met aandacht voor individuen met specifieke gezondheidsbehoeften, zonder winstoogmerk als leidende
+                    drijfveer.
                 </p>
                 <span class="link"><a th:href="@{/onze-organisatie}">-> Meer lezen</a></span>
             </div>
@@ -62,8 +64,31 @@
         <!-- begin footer -->
         <div class="footer">
             <div class="footertekst">
-                <h2>Footer (komt andere titel)</h2>
-                <p>Hier komt info in het kort te staan</p>
+                <h2 class="footer-title"> Volg ons op social media </h2>
+                <!--Instagram account -- theustbuddies-->
+                <a th:href="@{https://www.instagram.com/thedustbuddies}">
+                    <img class="social" th:src="@{/images/instagram.png}" loading="lazy">
+                </a>
+                <!--tiktok account -- the.dust.buddies-->
+                <a th:href="@{https://www.tiktok.com/@the.dust.buddies}">
+                    <img class="social" th:src="@{/images/tiktok.png}" loading="lazy">
+                </a>
+                <!--Whatsapp -- eigen nummer-->
+                <a th:href="@{https://wa.me/31640202084}">
+                    <img class="social" th:src="@{/images/whatsapp.png}" loading="lazy">
+                </a><br><br>
+
+                <div class="footer-extra">
+                    <p class="footer-extra-text">
+                        Bleiswijkseweg 37 <br>
+                        2712PB <br>
+                        Zoetermeer 
+                    </p>
+                    <p class="copyright-wrapper footer-extra-text"> 
+                        <img class="copyright" th:src="@{/images/copyright.png}" loading="lazy">
+                        Stofdetector
+                    </p>
+                </div>
             </div>
         </div>
         <!-- einde footer -->

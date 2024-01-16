@@ -108,11 +108,38 @@ span.link:hover {
     text-align: center;
     margin: 5px;
     box-sizing: border-box;
+
+    border: 2px solid black;
+}
+
+.social{
+    height: 30px;
+    width: auto;
 }
 
 .footertekst {
-    background-color: var(--back);
+    /* background-color: var(--back); */
+    background-color: rgba(0, 0, 0, 0.4);
     padding: 10px;
+}
+
+h2.footer-title {
+    color: white;
+}
+
+div.footer-extra {
+    width: 100%;
+    text-align: right;
+}
+
+p.footer-extra-text {
+    padding: 0px 20px;
+    color: white;
+}
+
+img.copyright {
+    height: 10px;
+    width: auto;
 }
 
 /* einde footer */

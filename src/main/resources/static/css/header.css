@@ -1,15 +1,21 @@
 /* begin banner */
-.banner{
-    grid-area: banner;
-    text-align: center;
-    margin: 5px;
-    background-color: var(--titel);
+div.banner {
+    display: flex;
+    justify-content: center;
+    background-color: black;
+    margin: 5px 0px;
+    padding: 10px 0px;
+}
+img.logo {
+    max-height: 100px;
+}
+.page-title{
     color: white;
+    font-size: 3em;
 }
 /* einde banner */
 /* begin navbar */
 .navbar{
-    grid-area: navbar;
     text-align: center;
     margin: 5px;
     font-size: 16px;
@@ -17,7 +23,6 @@
     background-color: var(--back);
 }
 .navbar ul{
-    grid-area: navbar;
     /* position: fixed; */
     top: 0;
     width: 100%;
