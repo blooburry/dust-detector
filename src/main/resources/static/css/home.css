@@ -151,12 +151,6 @@ a {
     text-decoration: none;
 }
 
-h2 {
-    /* background-color: var(--titel); */
-    color: var(--titel);
-    font-size: 30px;
-}
-
 p {
     /* background-color: var(--div); */
     color: var(--tekst);

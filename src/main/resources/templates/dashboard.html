@@ -5,23 +5,115 @@
 <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link th:href="@{/css/dashboard.css}" rel="stylesheet"/>
-        <link th:href="@{/css/styles.css}" rel="stylesheet"/>
+        <link th:href="@{/css/dashboard.css}" rel="stylesheet" />
+        <link th:href="@{/css/styles.css}" rel="stylesheet" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.5.0/sockjs.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
+
         <title>Dashboard</title>
-    </head>
+</head>
+
 <body>
         <!-- Thymeleaf navbar fragment is inserted here -->
         <div th:replace="~{fragments/header :: header}"></div>
-        
+
         <h2 class="page-title"> Dashboard </h2>
         <div class="wrapper">
                 <div class="section">
+                        <h2> Mijn Apparaten </h2>
+                        <div class="device-info">
+                        </div>
+                        <h2> Gegevenslogboek </h2>
+                        <div class="metingen-updates">
+                                <h3> Datum gemeten </h3>
+                                <h3> Stofniveau </h3>
+                                <h3> Detector ID </h3>
+                        </div>
+                </div>
+
+                <div class="section">
                         <h2> Uitloggen </h2>
                         <form th:action="@{/logout}" method="post">
-                                <input type="submit" value="Log Uit"/>
+                                <input type="submit" value="Log Uit" />
                         </form>
                 </div>
         </div>
 </body>
 
 </html>
+
+<script th:inline="javascript">
+
+        // Detector data fetchen van de server
+        fetch('/api/detectors')
+                .then(response => response.json())
+                .then(data => {
+                        // Dit stukje loopt over de data en updatet de HTML
+                        const deviceInfoDiv = document.querySelector('.device-info');
+                        data.forEach(detector => {
+                                const div = document.createElement('div');
+                                div.className = 'device-row';
+                                div.innerHTML = `
+                                        <h3> Status </h3>
+                                        <p>${detector.status}</p>
+                                        <h3> IP Adress </h3>
+                                        <p>${detector.ipAddress}</p>
+                                        <h3> Gekocht op </h3>
+                                        <p>${new Date(detector.dateBought).toLocaleDateString()}</p>
+                                `;
+                                deviceInfoDiv.appendChild(div);
+                        });
+                })
+                .catch(error => console.error('Error:', error));
+
+        // Oude metingen fetchen van de server
+        fetch('/api/meting')
+                .then(response => response.json())
+                .then(data => {
+                        console.log("Ontvangen meting data:");
+                        console.log(data);
+
+                        data.forEach(meting => appendMeting(meting));
+                })
+                .catch(error => console.error('Error:', error))
+
+        // Aan de websocket subscriben
+        let socket = new SockJS('/ws');
+        let stompClient = Stomp.over(socket);
+
+        const username = /*[[${#authentication.name}]]*/ 'none';
+
+        console.log("Verbinding wordt geprobeerd met:");
+        console.log(stompClient);
+
+        stompClient.connect({}, function (frame) {
+
+                // Subscribe to the specific user's destination path
+                stompClient.subscribe('/user/' + username + '/metingen-updates', function (message) {
+                        const update = JSON.parse(message.body);
+                        console.log('Bericht ontvangen: ', update);
+
+                        appendMeting(update);
+                });
+        });
+
+        function appendMeting(update) {
+                const container = document.querySelector('.metingen-updates');
+
+                // Create a new paragraph element for each property
+                const dateParagraph = document.createElement('p');
+                const levelParagraph = document.createElement('p');
+                const detectorIdParagraph = document.createElement('p');
+
+                // Set the text content of each paragraph
+                dateParagraph.textContent = update.date;
+                levelParagraph.textContent = update.dustLevel;
+                detectorIdParagraph.textContent = update.detectorId;
+
+                // Voeg ze toe als 4de element (dus 1ste rij, na de headers)
+                // In omgekeerde volgorde toevoegen
+                container.insertBefore(detectorIdParagraph, container.children[3] || null);
+                container.insertBefore(levelParagraph, container.children[3] || null);
+                container.insertBefore(dateParagraph, container.children[3] || null);
+        }
+</script>

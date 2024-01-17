@@ -30,17 +30,3 @@ public class SignInController {
     }
 }
 
-@RestController
-@RequestMapping("/api")
-class SignInRestController {
-
-    @Autowired
-    private UserService userService;
-
-    private static final Logger logger = LoggerFactory.getLogger(SignUpController.class);
-
-    // @PostMapping("/signin")
-    // public ResponseEntity<String> signUp(@Valid @RequestBody SignUpDTO user) {
-
-    // }
-}

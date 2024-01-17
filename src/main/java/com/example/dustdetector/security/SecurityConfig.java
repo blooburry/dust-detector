@@ -53,7 +53,11 @@ public class SecurityConfig {
         http
         .csrf(c -> c.disable())
         .authorizeHttpRequests((requests) -> requests
-                        .requestMatchers("/dashboard", "/webshop").authenticated() // beveiligde paginas
+                        .requestMatchers(
+                            "/dashboard",
+                            "/webshop",
+                            "/api/detectors"
+                        ).authenticated() // beveiligde paginas
                         .requestMatchers(
                             "/home", 
                             "/medische-informatie",
@@ -65,6 +69,7 @@ public class SecurityConfig {
                             "/medische-informatie",
                             "/onze-organisatie",
                             "/support",
+                            "/ws/**",
                             "/"
                         ).permitAll() // openbare paginas
                         .requestMatchers("/css/**", "/js/**", "/images/**").permitAll())

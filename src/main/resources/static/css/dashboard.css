@@ -1,0 +1,14 @@
+div.device-row {
+    border-top: 2px solid black;
+    padding: 20px;
+}
+
+div.metingen-updates {
+    display: grid;
+
+    grid-template-columns: auto auto auto;
+}
+
+div.metingen-updates > p {
+    border-bottom: 2px solid var(--titel);
+}

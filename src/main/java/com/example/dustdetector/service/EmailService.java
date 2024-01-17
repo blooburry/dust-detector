@@ -47,7 +47,7 @@ public class EmailService {
         try {
             future.get(10, TimeUnit.SECONDS);
         } catch (TimeoutException | InterruptedException | ExecutionException e) {
-            this.logger.error("Email sending failed: " + e.getMessage());
+            this.logger.error("Email sending failed: ", e);
             throw new RuntimeException("Internal Server Error", e);
         }
     }

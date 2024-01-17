@@ -21,7 +21,8 @@ a{
     text-decoration: none;
 }
 h2.page-title {
-    color: var(--titel);
+    /* color: var(--titel); */
+    color: black;
     font-size: 30px;
     text-align: center;
 }
@@ -128,6 +129,12 @@ div.section {
     margin: 0px 20px;
     padding: 40px;
     background-color: var(--back);
+}
+
+h2 {
+    /* background-color: var(--titel); */
+    color: var(--titel);
+    font-size: 30px;
 }
 
 h3 {
