@@ -4,7 +4,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link th:href="@{/css/styles.css}" rel="stylesheet" />
     <link th:href="@{/css/webshop.css}" rel="stylesheet" />
     <title>Webshop</title>
 </head>
@@ -71,32 +70,7 @@
         </div>
         <!-- einde info -->
 
-
-        <!-- begin footer -->
-        <div class="footer">
-            <div class="footertekst">
-                <!--Instagram account -- theustbuddies-->
-                <a th:href="@{https://www.instagram.com/thedustbuddies}">
-                    <img class="social" th:src="@{/images/instagram.png}" loading="lazy">
-                </a>
-                <!--tiktok account -- the.dust.buddies-->
-                <a th:href="@{https://www.tiktok.com/@the.dust.buddies}">
-                    <img class="social" th:src="@{/images/tiktok.png}" loading="lazy">
-                </a>
-                <!--Whatsapp -- eigen nummer-->
-                <a th:href="@{https://wa.me/31640202084}">
-                    <img class="social" th:src="@{/images/whatsapp.png}" loading="lazy">
-                </a><br><br>
-                <!--Betaalmogelijkheden (Ideal, Mastercard, VISA)-->
-                <img class="social" th:src="@{/images/ideal.png}" loading="lazy">
-                <img class="social" th:src="@{/images/mastercard.png}" loading="lazy">
-                <img class="social" th:src="@{/images/visa.png}" loading="lazy">
-                <img class="social" th:src="@{/images/applepay.png}" loading="lazy"><br><br>
-                <!--2023 - stofdetector-->
-                <p class="p1"> <img class="socialss" th:src="@{/images/copyright.png}" loading="lazy" >Stofdetector</p>
-            </div>
-        </div>
-        <!-- einde footer -->
+        <footer th:insert="~{fragments/footer :: footer}" class="footer"></footer>
     </div>
 </body>
 

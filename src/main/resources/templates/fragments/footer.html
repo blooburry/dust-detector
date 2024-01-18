@@ -1,0 +1,37 @@
+<footer th:fragment="footer" xmlns:th="http://www.thymeleaf.org">
+    <link rel="stylesheet" th:href="@{/css/footer.css}" type="text/css">
+    <div class="footer">
+        <div class="footertekst">
+            <h2 class="footer-title"> Volg ons op social media </h2>
+            <!--Instagram account -- theustbuddies-->
+            <a th:href="@{https://www.instagram.com/thedustbuddies}">
+                <img class="social" th:src="@{/images/instagram.png}" loading="lazy">
+            </a>
+            <!--tiktok account -- the.dust.buddies-->
+            <a th:href="@{https://www.tiktok.com/@the.dust.buddies}">
+                <img class="social" th:src="@{/images/tiktok.png}" loading="lazy">
+            </a>
+            <!--Whatsapp -- eigen nummer-->
+            <a th:href="@{https://wa.me/31640202084}">
+                <img class="social" th:src="@{/images/whatsapp.png}" loading="lazy">
+            </a><br><br>
+            <!--Betaalmogelijkheden (Ideal, Mastercard, VISA)-->
+            <img class="social" th:src="@{/images/ideal.png}" loading="lazy">
+            <img class="social" th:src="@{/images/mastercard.png}" loading="lazy">
+            <img class="social" th:src="@{/images/visa.png}" loading="lazy">
+            <img class="social" th:src="@{/images/applepay.png}" loading="lazy"><br><br>
+            <!--2023 - stofdetector-->
+            <div class="footer-extra">
+                <p class="footer-extra-text">
+                    Bleiswijkseweg 37 <br>
+                    2712PB <br>
+                    Zoetermeer 
+                </p>
+                <p class="copyright-wrapper footer-extra-text"> 
+                    <img class="copyright" th:src="@{/images/copyright.png}" loading="lazy">
+                    Stofdetector
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>

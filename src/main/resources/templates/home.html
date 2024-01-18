@@ -21,7 +21,7 @@
                 <h2>Ons product</h2>
                 <img th:src="@{/images/ontwerp.jpg}" class="device">
                 <p>
-                    Ontdek de revolutionaire Stofdetector, jouw ultieme bondgenoot tegen longaandoeningen en
+                    Ontdek de revolutionaire Stofdetector, jouw ultieme bondgenoot tegen 
                     stofallergieën!
                     Met geavanceerde technologie biedt de stofdetector zekerheid en een gezonde leefomgeving.
                     Investeer in welzijn en adem gemakkelijk!
@@ -53,45 +53,15 @@
             <div class="supporttekst">
                 <h2>Support</h2>
                 <p>Email: info@gekkechallengers.nl<br>
-                    <br>Email: info@gekkechallengers.nl<br>
-                    <br>Email: info@gekkechallengers.nl
+                    <br>Telefoon: 06-12345678<br>
+                    <br>Adres: Bleiswijkseweg 37, 2712PB, Zoetermeer 
                 </p>
                 <span class="link"><a th:href="@{/support}">-> Bereik ons</a></span>
             </div>
         </div>
         <!-- einde support -->
 
-        <!-- begin footer -->
-        <div class="footer">
-            <div class="footertekst">
-                <h2 class="footer-title"> Volg ons op social media </h2>
-                <!--Instagram account -- theustbuddies-->
-                <a th:href="@{https://www.instagram.com/thedustbuddies}">
-                    <img class="social" th:src="@{/images/instagram.png}" loading="lazy">
-                </a>
-                <!--tiktok account -- the.dust.buddies-->
-                <a th:href="@{https://www.tiktok.com/@the.dust.buddies}">
-                    <img class="social" th:src="@{/images/tiktok.png}" loading="lazy">
-                </a>
-                <!--Whatsapp -- eigen nummer-->
-                <a th:href="@{https://wa.me/31640202084}">
-                    <img class="social" th:src="@{/images/whatsapp.png}" loading="lazy">
-                </a><br><br>
-
-                <div class="footer-extra">
-                    <p class="footer-extra-text">
-                        Bleiswijkseweg 37 <br>
-                        2712PB <br>
-                        Zoetermeer 
-                    </p>
-                    <p class="copyright-wrapper footer-extra-text"> 
-                        <img class="copyright" th:src="@{/images/copyright.png}" loading="lazy">
-                        Stofdetector
-                    </p>
-                </div>
-            </div>
-        </div>
-        <!-- einde footer -->
+        <footer th:insert="~{fragments/footer :: footer}" class="footer"></footer>
     </div>
 </body>
 

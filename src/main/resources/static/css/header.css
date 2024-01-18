@@ -11,6 +11,7 @@ img.logo {
 }
 .page-title{
     color: white;
+    /* color: var(--titel); */
     font-size: 3em;
 }
 /* einde banner */

@@ -138,20 +138,6 @@ span{
 }
 /* einde popup */
 
-/* begin footer */
-.footer{
-    grid-area: footer;
-    text-align: center;
-    margin: 5px;
-    box-sizing: border-box;
-    background-color: black;
-}
-.footertekst{
-    background-color: var(--back);
-    padding: 10px;
-}
-/* einde footer */
-
 /* begin tekst */
 a{
     color: var(--titel);

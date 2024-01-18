@@ -1,0 +1,39 @@
+/* begin footer */
+.footer {
+    grid-area: footer;
+    text-align: center;
+    margin: 0px;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.social{
+    height: 30px;
+    width: auto;
+}
+
+.footertekst {
+    /* background-color: var(--back); */
+    background-color: var(--back);
+    padding: 10px;
+}
+
+h2.footer-title {
+    color: var(--titel);
+}
+
+div.footer-extra {
+    width: 100%;
+    text-align: right;
+}
+
+p.footer-extra-text {
+    padding: 0px 20px;
+    color: black;
+}
+
+img.copyright {
+    height: 10px;
+    width: auto;
+}
+/* einde footer */

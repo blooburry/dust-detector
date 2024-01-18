@@ -84,10 +84,10 @@ public class DustLevelService {
                                         u.getPhone(),
                                         "Waarschuwing: hoog stofniveau!");
 
-                        this.logger.info("Een email gaat worden verstuurd");
-                        emailService.sendHighDustAlertEmail(
-                                        u.getEmail(),
-                                        dustLevel.getLevel());
+                        // this.logger.info("Een email gaat worden verstuurd");
+                        // emailService.sendHighDustAlertEmail(
+                        //                 u.getEmail(),
+                        //                 dustLevel.getLevel());
                 }
         }
 
